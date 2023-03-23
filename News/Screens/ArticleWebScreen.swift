@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ArticleWebScreen: View {
+    let url: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WebView(url: url)
     }
 }
 
 struct ArticleWebScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleWebScreen()
+        ArticleWebScreen(url: "http://google.com")
     }
 }

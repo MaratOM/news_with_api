@@ -51,9 +51,6 @@ final class NewsViewModel: ObservableObject {
                     contentsOf: data?.articles?.filter { $0.title != nil } ?? []
                 )
                 self.articles = self.allArticles[self.currentNewsType] ?? []
-//                print(data)
-//                print(self.pagination[self.currentNewsType])
-//                print(self.articles.first?.title)
             }
         }
     }
@@ -65,26 +62,38 @@ struct NewsScreen: View {
     @State var listVariant: NewsType = .music
     
     var body: some View {
-        VStack {
-            Picker("News Type", selection: $viewModel.currentNewsType) {
-                ForEach(NewsType.allCases, id: \.self) {
-                    Text($0.rawValue)
-                        .tag($0)
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            
-            List {
-                ForEach(viewModel.articles) { article in
-                    if let title = article.title {
-                        Text(title)
-                            .onAppear {
-                                if viewModel.articles.isLastItem(article) {
-                                    viewModel.fetch()
-                                }
-                            }
+        NavigationView {
+            VStack {
+                Picker("News Type", selection: $viewModel.currentNewsType) {
+                    ForEach(NewsType.allCases, id: \.self) {
+                        Text($0.rawValue)
+                            .tag($0)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                List {
+                    ForEach(viewModel.articles) { article in
+                        if let title = article.title {
+                            NavigationLink {
+                                ArticleScreen(
+                                    title: article.title ?? "",
+                                    description: article.description ?? "",
+                                    content: article.content ?? "",
+                                    url: article.url
+                                )
+                            } label: {
+                                Text(title)
+                                    .onAppear {
+                                        if viewModel.articles.isLastItem(article) {
+                                            viewModel.fetch()
+                                        }
+                                }
+                            }
+                        }
+                    }
+                }
+                .listStyle(PlainListStyle())
             }
         }
 //        .onAppear {
