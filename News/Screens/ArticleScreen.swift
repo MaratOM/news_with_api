@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIDesignSystem
 
 struct ArticleScreen: View {
     let title: String
@@ -27,9 +28,9 @@ struct ArticleScreen: View {
                     Text(content)
                         .padding(.top, 4)
                         .padding(.bottom, 15)
-                    NavigationLink {
+                    NavPushButton(
                         WebView(url: url)
-                    } label: {
+                    ) {
                         Text("Read Article")
                             .padding(.vertical, 5)
                             .padding(.horizontal, 15)

@@ -18,6 +18,8 @@
 		0C4A576829CC68A50076B7AA /* ArticleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A576729CC68A50076B7AA /* ArticleScreen.swift */; };
 		0C4A576A29CC6DDA0076B7AA /* ArticleWebScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A576929CC6DDA0076B7AA /* ArticleWebScreen.swift */; };
 		0C4A576C29CC6F730076B7AA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A576B29CC6F730076B7AA /* WebView.swift */; };
+		0C4A577129CC92130076B7AA /* UIDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 0C4A577029CC92130076B7AA /* UIDesignSystem */; };
+		0C4A5FFB29D344B80076B7AA /* FavouritesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4A5FFA29D344B80076B7AA /* FavouritesScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		0C4A576729CC68A50076B7AA /* ArticleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleScreen.swift; sourceTree = "<group>"; };
 		0C4A576929CC6DDA0076B7AA /* ArticleWebScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleWebScreen.swift; sourceTree = "<group>"; };
 		0C4A576B29CC6F730076B7AA /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0C4A576F29CC915E0076B7AA /* UIDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIDesignSystem; sourceTree = "<group>"; };
+		0C4A5FFA29D344B80076B7AA /* FavouritesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C4A575D29CAF09A0076B7AA /* Networking in Frameworks */,
+				0C4A577129CC92130076B7AA /* UIDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,7 @@
 				0C4A576D29CC78AD0076B7AA /* Screens */,
 				0C4A576429CB26860076B7AA /* Extensions */,
 				0C4A575A29CAF05C0076B7AA /* Networking */,
+				0C4A576F29CC915E0076B7AA /* UIDesignSystem */,
 				0C4A574C29CAEE980076B7AA /* NewsApp.swift */,
 				0C4A574E29CAEE980076B7AA /* ContentView.swift */,
 				0C4A575029CAEE990076B7AA /* Assets.xcassets */,
@@ -109,6 +115,7 @@
 				0C4A575E29CB052D0076B7AA /* NewsScreen.swift */,
 				0C4A576729CC68A50076B7AA /* ArticleScreen.swift */,
 				0C4A576929CC6DDA0076B7AA /* ArticleWebScreen.swift */,
+				0C4A5FFA29D344B80076B7AA /* FavouritesScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -139,6 +146,7 @@
 			name = News;
 			packageProductDependencies = (
 				0C4A575C29CAF09A0076B7AA /* Networking */,
+				0C4A577029CC92130076B7AA /* UIDesignSystem */,
 			);
 			productName = News;
 			productReference = 0C4A574929CAEE980076B7AA /* News.app */;
@@ -195,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C4A576629CB26AA0076B7AA /* RandomAccessCollection.swift in Sources */,
+				0C4A5FFB29D344B80076B7AA /* FavouritesScreen.swift in Sources */,
 				0C4A574F29CAEE980076B7AA /* ContentView.swift in Sources */,
 				0C4A576A29CC6DDA0076B7AA /* ArticleWebScreen.swift in Sources */,
 				0C4A574D29CAEE980076B7AA /* NewsApp.swift in Sources */,
@@ -338,6 +347,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,6 +377,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -407,6 +418,10 @@
 		0C4A575C29CAF09A0076B7AA /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		0C4A577029CC92130076B7AA /* UIDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UIDesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

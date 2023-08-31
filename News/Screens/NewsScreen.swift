@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Networking
+import UIDesignSystem
 
 extension Article: Identifiable {
     public var id: String { url }
@@ -21,6 +22,7 @@ final class NewsViewModel: ObservableObject {
     @Published var pagination: [NewsType: Int] = NewsType.allCases.reduce(into: [:]) { $0[$1] = 0 }
     @Published var allArticles: [NewsType: [Article]] = NewsType.allCases.reduce(into: [:]) { $0[$1] = [] }
     @Published var articles: [Article] = .init()
+    @Published var favourites: [String] = .init()
 
     init() {
         fetch()
@@ -62,7 +64,7 @@ struct NewsScreen: View {
     @State var listVariant: NewsType = .music
     
     var body: some View {
-        NavigationView {
+        NavigationStackView {
             VStack {
                 Picker("News Type", selection: $viewModel.currentNewsType) {
                     ForEach(NewsType.allCases, id: \.self) {
@@ -75,18 +77,29 @@ struct NewsScreen: View {
                 List {
                     ForEach(viewModel.articles) { article in
                         if let title = article.title {
-                            NavigationLink {
+                            NavPushButton(
                                 ArticleScreen(
                                     title: article.title ?? "",
                                     description: article.description ?? "",
                                     content: article.content ?? "",
                                     url: article.url
                                 )
-                            } label: {
-                                Text(title)
-                                    .onAppear {
-                                        if viewModel.articles.isLastItem(article) {
-                                            viewModel.fetch()
+                            ) {
+                                HStack {
+                                    Text(title)
+                                        .onAppear {
+                                            if viewModel.articles.isLastItem(article) {
+                                                viewModel.fetch()
+                                            }
+                                    }
+                                    Spacer()
+                                    Image(systemName: viewModel.favourites.contains(article.id) ? "bookmark.fill" : "bookmark")
+                                        .onTapGesture {
+                                            if viewModel.favourites.contains(article.id) {
+                                                viewModel.favourites = viewModel.favourites.filter { $0 != article.id }
+                                            } else {
+                                                viewModel.favourites.append(article.id)
+                                            }
                                         }
                                 }
                             }

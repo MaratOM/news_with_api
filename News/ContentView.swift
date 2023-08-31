@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-//    @StateObject var store = NewsStore()
     @State var tabSelection: Int = 0
     
     var body: some View {
         TabView(selection: $tabSelection) {
             NewsScreen()
-                .tag(1)
+                .tag(0)
                 .tabItem {
                     Label("News", systemImage: "newspaper")
+                }
+            NewsScreen()
+                .tag(1)
+                .tabItem {
+                    Label("Favourite", systemImage: "bookmark.fill")
                 }
         }
     }
